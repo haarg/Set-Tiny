@@ -2,9 +2,8 @@ package Set::Tiny;
 
 use warnings;
 use strict;
-use Exporter;
-@Set::Tiny::ISA       = qw(Exporter);
-@Set::Tiny::EXPORT_OK = qw(set);
+use Exporter 'import';
+our @EXPORT_OK = qw(set);
 
 # VERSION
 
