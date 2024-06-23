@@ -71,7 +71,7 @@ sub invert {
     return $self;
 }
 
-sub is_null { !%{ $_[0] } }
+sub is_null { ( scalar( keys( %{ $_[0] } ) ) == 0 ) ? 1 : 0 }
 
 sub is_subset { $_[1]->contains( keys %{ $_[0] } ) }
 

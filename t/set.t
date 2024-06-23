@@ -24,7 +24,7 @@ is_deeply( [ sort $b->elements ], [qw( a b c )], 'elements()' );
 is_deeply( [ sort $b->members ],
     [qw( a b c )], 'members() is an alias for elements()' );
 
-note('Testing contains method');
+note('Testing contains truthyness');
 is( $b->contains(qw( a c )),
     1, to_s( $b, ' contains returns "true" for "a" and "c"' ) );
 ok( $b->contains(qw( a c )),  to_s( $b, ' contains "a" and "c"' ) );
@@ -38,9 +38,14 @@ ok( $a->contains(), to_s( $a, ' contains the empty list' ) );
 is( $a->contains(), 1,
     to_s( $a, ' contains returns "true" for an empty list' ) );
 
-ok( $a->is_null,        to_s( $a, ' is empty' ) );
+note('Testing is_null and is_empty truthyness');
+ok( $a->is_null, to_s( $a, ' is empty' ) );
+is( $a->is_null, 1, to_s( $a, ' is_null returns "true"' ) );
 ok( not( $b->is_null ), to_s( $b, ' is not empty' ) );
-ok( $a->is_empty,       'is_empty() is an alias for is_null' );
+is( $b->is_null, 0, to_s( $b, ' is_null returns "false"' ) );
+ok( $a->is_empty, 'is_empty is an alias for is_null' );
+is( $a->is_empty, 1, to_s( $a, ' is_empty returns "true"' ) );
+is( $b->is_empty, 0, to_s( $b, ' is_empty returns "false"' ) );
 
 ok( $a->is_equal($a),        to_s( $a, ' is equal to ',     $a ) );
 ok( $b->is_equal($b),        to_s( $b, ' is equal to ',     $b ) );
