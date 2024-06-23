@@ -37,9 +37,10 @@ sub element { exists $_[0]->{ $_[1] } ? $_[1] : () }
 sub elements { keys %{ $_[0] } }
 
 sub contains {
-    my $self = shift;
-    exists $self->{$_} or return for @_;
-    return 1;
+    my $self    = shift;
+    my $counter = 0;
+    map { $counter++ if ( exists $self->{$_} ) } @_;
+    return ( $counter == scalar(@_) ) ? 1 : 0;
 }
 
 sub clone {

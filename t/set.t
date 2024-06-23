@@ -1,6 +1,6 @@
 use warnings;
 use strict;
-use Test::More tests => 60;
+use Test::More;
 
 use_ok 'Set::Tiny';
 
@@ -24,10 +24,19 @@ is_deeply( [ sort $b->elements ], [qw( a b c )], 'elements()' );
 is_deeply( [ sort $b->members ],
     [qw( a b c )], 'members() is an alias for elements()' );
 
+note('Testing contains method');
+is( $b->contains(qw( a c )),
+    1, to_s( $b, ' contains returns "true" for "a" and "c"' ) );
 ok( $b->contains(qw( a c )),  to_s( $b, ' contains "a" and "c"' ) );
 ok( $b->has(qw( a c )),       'has() is an alias for contains()' );
 ok( not( $a->contains('b') ), to_s( $a, ' does not contain "b"' ) );
-ok( $a->contains(),           to_s( $a, ' contains the empty list' ) );
+is( $a->contains('b'),     0, to_s( $a, ' contains returns "false" for "b"' ) );
+is( $a->contains(qw(b d)), 0, to_s( $a, ' does not contain "b" and "d"' ) );
+is( $a->contains(qw(a c d)),
+    0, to_s( $a, ' contains returns "false" for "d"' ) );
+ok( $a->contains(), to_s( $a, ' contains the empty list' ) );
+is( $a->contains(), 1,
+    to_s( $a, ' contains returns "true" for an empty list' ) );
 
 ok( $a->is_null,        to_s( $a, ' is empty' ) );
 ok( not( $b->is_null ), to_s( $b, ' is not empty' ) );
@@ -133,6 +142,8 @@ is( $y->as_string, '(c)', 'clone() is an alias for copy()' );
 
 $x->clear;
 is( $b->as_string, '(c)', 'clone is unchanged()' );
+
+done_testing;
 
 sub to_s {
     join '', map { ref $_ eq 'Set::Tiny' ? $_->as_string : $_ } @_;
