@@ -9,7 +9,13 @@ whether one is contained within the other.
 The best way to install this module is to use `cpan` or `cpanm`:
 
 ```
-cpanm install Set::Tiny
+cpanm Set::Tiny
+```
+
+or 
+
+```
+cpan -i Set::Tiny
 ```
 
 Since `Set::Tiny` is available at [CPAN](https://metacpan.org/).
