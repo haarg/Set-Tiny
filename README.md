@@ -18,11 +18,11 @@ or
 cpan -i Set::Tiny
 ```
 
-Since `Set::Tiny` is available at [CPAN](https://metacpan.org/).
+Since `Set::Tiny` is available at [CPAN](https://metacpan.org/pod/Set::Tiny).
 
 Another option is to use your package manager (if the module is available).
 
-As a last resource (not recommended) you can download the tarball, unpackt it
+As a last resource (not recommended) you can download the tarball, unpack it
 and run the following commands:
 
 ```
