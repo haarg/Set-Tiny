@@ -88,8 +88,8 @@ sub is_disjoint { !$_[0]->intersection( $_[1] )->size }
 
 sub is_properly_intersecting {
     !$_[0]->is_disjoint( $_[1] )
-      && $_[0]->difference( $_[1] )->size
-      && $_[1]->difference( $_[0] )->size;
+        && $_[0]->difference( $_[1] )->size
+        && $_[1]->difference( $_[0] )->size;
 }
 
 sub difference { $_[0]->clone->remove( keys %{ $_[1] } ) }
@@ -107,7 +107,7 @@ sub intersection {
 sub intersection2 {
     my $class = ref $_[0];
     my ( $a, $b ) =
-      $_[0]->size > $_[1]->size ? ( $_[0], $_[1] ) : ( $_[1], $_[0] );
+        $_[0]->size > $_[1]->size ? ( $_[0], $_[1] ) : ( $_[1], $_[0] );
     return $class->new( grep { exists( $a->{$_} ) } keys %{$b} );
 }
 
