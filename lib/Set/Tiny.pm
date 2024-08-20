@@ -1,13 +1,11 @@
 package Set::Tiny;
-
-use warnings;
 use strict;
+use warnings;
+
+our $VERSION = '0.06';
+
 use Exporter 'import';
 our @EXPORT_OK = qw(set);
-
-# VERSION
-
-# ABSTRACT: Simple sets of strings
 
 sub new {
     my $class = shift;
@@ -16,7 +14,7 @@ sub new {
     return bless \%self, $class;
 }
 
-sub set {
+sub set { ## no critic (NamingConventions::ProhibitAmbiguousNames)
     if ( ref( $_[0] ) eq 'Set::Tiny' ) {
         return $_[0]->clone();
     }
@@ -126,6 +124,14 @@ sub symmetric_difference { $_[0]->clone->invert( keys %{ $_[1] } ) }
 1;
 
 __END__
+
+=encoding UTF-8
+
+=for stopwords superset
+
+=head1 NAME
+
+Set::Tiny - Simple sets of strings
 
 =head1 SYNOPSIS
 

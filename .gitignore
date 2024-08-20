@@ -1,6 +1,7 @@
-Makefile
-Set-Tiny-*
-MANIFEST*
-blib/
-pm_to_blib
-MYMETA.*
+/Makefile
+/Set-Tiny-*
+/MANIFEST*
+/blib/
+/pm_to_blib
+/MYMETA.*
+/.build/
