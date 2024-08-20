@@ -1,8 +1,8 @@
 use warnings;
 use strict;
-use Test::More tests => 60;
+use Test::More tests => 59;
 
-use_ok 'Set::Tiny';
+use Set::Tiny;
 
 my $a = Set::Tiny->new;
 my $b = Set::Tiny->new(qw( a b c ));
