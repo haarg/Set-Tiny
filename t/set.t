@@ -1,6 +1,6 @@
 use warnings;
 use strict;
-use Test::More tests => 59;
+use Test::More tests => 60;
 
 use Set::Tiny;
 
@@ -32,6 +32,8 @@ ok $b->contains(qw( a c )), to_s( $b, " contains 'a' and 'c'" );
 ok $b->has(qw( a c )),      "has() is an alias for contains()";
 ok !$a->contains('b'),      to_s( $a, " does not contain 'b'" );
 ok $a->contains(),          to_s( $a, " contains the empty list" );
+my @contains = $b->contains('z');
+is_deeply \@contains, [''], 'false contains return is boolean false';
 
 ok $a->is_null,  to_s( $a, " is empty" );
 ok !$b->is_null, to_s( $b, " is not empty" );

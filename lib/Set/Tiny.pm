@@ -36,8 +36,8 @@ sub elements { keys %{ $_[0] } }
 
 sub contains {
     my $self = shift;
-    exists $self->{$_} or return for @_;
-    return 1;
+    exists $self->{$_} or return !!0 for @_;
+    return !!1;
 }
 
 sub clone {
