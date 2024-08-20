@@ -2,7 +2,7 @@ package Set::Tiny;
 use strict;
 use warnings;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 use Exporter 'import';
 our @EXPORT_OK = qw(set);

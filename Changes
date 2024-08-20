@@ -1,5 +1,7 @@
 Revision history for Set-Tiny
 
+{{ $NEXT }}
+
 0.06    2024-08-20
   - Revised Dist::Zilla packaging
   - Reduced minumum perl version
