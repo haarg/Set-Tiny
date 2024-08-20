@@ -1,6 +1,9 @@
 Revision history for Set-Tiny
 
 {{ $NEXT }}
+  - Revised Dist::Zilla packaging
+  - Reduced minumum perl version
+  - Fixed contains method to always return a single boolean value.
 
 0.05    2024-06-17
   - Migration from Makefile.PL to Dist::Zilla.
