@@ -85,7 +85,7 @@ jobs:
         run: perl Makefile.PL
       - name: Run the tests
         run: make test
-  test-devel:
+  test-xt:
     needs:
       - perl-versions
       - build
