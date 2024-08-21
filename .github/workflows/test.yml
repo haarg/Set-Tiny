@@ -113,4 +113,4 @@ jobs:
       - name: Install dependencies
         run: cpanm --installdeps . --with-develop --with-recommends --with-suggests --notest
       - name: Run the xt tests
-        run: prove -lr xt
+        run: prove -lr xt/author
